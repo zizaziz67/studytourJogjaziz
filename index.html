@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesona Jogjakarta - Kota Budaya dan Sejarah</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+        
+        :root {
+            --primary-color: #6b4226;
+            --secondary-color: #c19a6b;
+            --accent-color: #e9c46a;
+            --text-color: #333;
+            --light-color: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('/api/placeholder/1200/600') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .header-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            color: white;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section {
+            padding: 100px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .intro {
+            background-color: white;
+        }
+        
+        .intro-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .intro-text {
+            flex: 1;
+        }
+        
+        .intro-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .intro-text p {
+            margin-bottom: 20px;
+        }
+        
+        .intro-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .intro-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .destinations {
+            background-color: var(--light-color);
+        }
+        
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .destination-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .destination-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .card-content p {
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .read-more:hover {
+            color: var(--primary-color);
+        }
+        
+        .read-more span {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover span {
+            transform: translateX(5px);
+        }
+        
+        .culture {
+            background-color: white;
+        }
+        
+        .culture-content {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+        
+        .culture-item {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .culture-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .culture-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .culture-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .culture-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .culture-text {
+            flex: 1;
+        }
+        
+        .culture-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .gallery {
+            background-color: var(--light-color);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .culinary {
+            background-color: white;
+        }
+        
+        .culinary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .food-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .food-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .food-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .food-card:hover .food-image img {
+            transform: scale(1.1);
+        }
+        
+        .food-content {
+            padding: 20px;
+        }
+        
+        .food-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            list-style: none;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animated {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        /* Responsif */
+        @media screen and (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .intro-content, .culture-item {
+                flex-direction: column;
+            }
+            
+            .culture-item:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="intro" class="section intro">
+        <div class="container">
+            <h2 class="section-title">Selamat Datang di Jogja</h2>
+            <div class="intro-content">
+                <div class="intro-text animated">
+                    <h3>Kota Istimewa Penuh Pesona</h3>
+                    <p>Pada tanggal 14 Mei 2025, SMKN 2 Trenggalek melaksanakan kegiatan Kunjungan Industri ke beberapa perusahaan dan instansi pendidikan di Yogyakarta. Kegiatan ini diikuti oleh siswa-siswi dari berbagai jurusan sepert , Rekayasa Perangkat Lunak (RPL), dan Tata Boga (KULINER), didampingi oleh guru pendamping serta staf sekolah.</p>
+                    <p>Tujuan dari kunjungan ini adalah untuk memberikan wawasan dan pengalaman langsung kepada para siswa mengenai dunia industri dan dunia kerja yang relevan dengan kompetensi keahlian mereka. </p>
+                    <p>Mari menjelajahi keindahan Jogja, dari bangunan bersejarah hingga pesona alam yang menakjubkan, dari tradisi yang masih terjaga hingga kuliner yang membuat lidah bergoyang!</p>
+                </div>
+                <div class="intro-image animated">
+                    <img src="https://asset.kompas.com/crops/5HTgtdqk1nAd9g8oj9lPHQyNUlU=/0x0:750x500/1200x800/data/photo/2023/07/13/64af70ba9e5c5.jpeg" alt="Panorama Kota Yogyakarta">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinations" class="section destinations">
+        <div class="container">
+            <h2 class="section-title">Destinasi Menarik</h2>
+            <div class="destinations-grid">
+                <div class="destination-card animated">
+                    <div class="card-image">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4noEmwIe1OQkUgvwagMoLg2tbE80sEVit8IUbQ_8ROHaZXG3VMWdm1DWfMjZKCMB-IoK2Peks8RIQ4jnuUgTn23KjFvV1dDLkP05-9C4RFKo7nLzFrCidA5oMdUYWK2--kNWc764WQ=s680-w680-h510-rw" alt="Candi Borobudur">
+                    </div>
+                    <div class="card-content">
+                        <h3>Rumah Oblong</h3>
+                        <p>Rumah Oblong berlokasi di Yogyakarta dan dikenal sebagai tempat edukatif yang memperkenalkan proses produksi kaos dari awal hingga siap dipasarkan. Di tempat ini, siswa-siswi SMKN 2 Trenggalek diperkenalkan pada berbagai tahapan produksi, mulai dari:</p>
+                        <a href="#" class="read-more">Baca selengkapnya <span>→</span></a>
+                    </div>
+                </div>
+                
+                <div class="destination-card animated">
+                    <div class="card-image">
+                        <img src="WhatsApp Image 2025-05-19 at 11.38.48 (1).jpeg" alt="Keraton Yogyakarta">
+                    </div>
+                    <div class="card-content">
+                        <h3>Universitas Teknologi Digital Indonesia</h3>
+                        <p>SMKN 2 Trenggalek melaksanakan kunjungan industri ke Universitas Teknologi Digital Indonesia (UTDI), sebuah perguruan tinggi di Yogyakarta yang fokus pada pengembangan teknologi digital dan inovasi di bidang informasi dan komunikasi.</p>
+                        <a href="#" class="read-more">Baca selengkapnya <span>→</span></a>
+                    </div>
+                </div>
+                
+                <div class="destination-card animated">
+                    <div class="card-image">
+                        <img src="WhatsApp Image 2025-05-19 at 11.54.31.jpeg" alt="Pantai Parangtritis">
+                    </div>
+                    <div class="card-content">
+                        <h3>Obelix Seaw</h3>
+                        <p>Obelix SeaW dikenal sebagai salah satu tempat wisata yang menggabungkan pemandangan laut yang indah dengan konsep tempat makan dan hiburan kekinian. Tempat ini menjadi contoh nyata bagaimana industri pariwisata dapat dikembangkan dengan konsep estetika visual, pelayanan prima, dan pemanfaatan media sosial sebagai alat promosi.</p>
+                        <a href="#" class="read-more">Baca selengkapnya <span>→</span></a>
+                    </div>
+                </div>
+                
+                <div class="destination-card animated">
+                    <div class="card-image">
+                        <img src="WhatsApp Image 2025-05-19 at 11.38.47 (1).jpeg" alt="Malioboro">
+                    </div>
+                    <div class="card-content">
+                        <h3>Jalan Malioboro bersama teman teman</h3>
+                        <p>Setelah mengikuti serangkaian kegiatan kunjungan industri di Yogyakarta, kami meluangkan waktu untuk menikmati suasana khas kota Jogja dengan berjalan-jalan di Jalan Malioboro, salah satu ikon wisata paling terkenal di Yogyakarta.</p>
+                        <a href="#" class="read-more">Baca selengkapnya <span>→</span></a>
+                    </div>
+                </div>
+                
+                <div class="destination-card animated">
+                    <div class="card-image">
+                        <img src="https://mojok.co/wp-content/uploads/2024/01/Bekas-bangunan-PIH-saat-ini-disewa-oleh-pihak-ketiga-untuk-restoran-dant-oko-oleh-oleh-1024x683.jpeg" alt="Taman Sari">
+                    </div>
+                    <div class="card-content">
+                        <h3>Rumah Makan Ajisaka</h3>
+                        <p>Setelah menjalani serangkaian kegiatan kunjungan industri di Yogyakarta, kami melanjutkan perjalanan ke Ajisaka Resto & Pemancingan, sebuah destinasi kuliner dan rekreasi yang terletak di Jalan Tegalturi No. 2, Giwangan, Umbulharjo, Yogyakarta. Tempat ini dikenal dengan suasana tradisional yang nyaman, cocok untuk bersantai bersama teman-teman.</p>
+                        <a href="#" class="read-more">Baca selengkapnya <span>→</span></a>
+                    </div>
+                </div>
+                
+                <div class="destination-card animated">
+                    <div class="card-image">
+                        <img src="WhatsApp Image 2025-05-19 at 11.38.51.jpeg" alt="Gunung Merapi">
+                    </div>
+                    <div class="card-content">
+                        <h3>Tupitu Kopii</h3>
+                        <p>Setelah menjelajahi kawasan Malioboro yang ramai dan penuh warna, kami memutuskan untuk beristirahat sejenak di Tupitu Kopi, sebuah kedai kopi yang terletak di teras Hamzah Batik Malioboro, tepatnya di Jalan Margomulyo No. 9, Yogyakarta. Kedai ini buka setiap hari dari pukul 08.00 hingga 23.00 WIB, menawarkan suasana nyaman yang memadukan nuansa tradisional dan modern.
+Instagram
++2
+</p>
+                        <a href="#" class="read-more">Baca selengkapnya <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="culture" class="section culture">
+        <div class="container">
+            <h2 class="section-title">Budaya & Tradisi</h2>
+            <div class="culture-content">
+                <div class="culture-item animated">
+                    <div class="culture-image">
+                        <img src="https://awsimages.detik.net.id/community/media/visual/2023/09/15/kerajinan-wayang-di-kampung-gebulen-jogja-foto-diunggah-pada-jumat-1592023-1_169.jpeg?w=620" alt="Pertunjukan Wayang Kulit">
+                    </div>
+                    <div class="culture-text">
+                        <h3>Wayang Kulit</h3>
+                        <p>Wayang kulit adalah seni pertunjukan tradisional yang menggunakan boneka pipih terbuat dari kulit sapi atau kerbau yang diukir. Dalang memainkan wayang di balik layar putih dengan cahaya lampu minyak, menciptakan bayangan yang indah.</p>
+                        <p>Pertunjukan wayang kulit biasanya berlangsung semalam suntuk dan menceritakan kisah-kisah dari epos Ramayana dan Mahabharata. Seni ini telah diakui oleh UNESCO sebagai Warisan Budaya Tak Benda sejak 2003.</p>
+                    </div>
+                </div>
+                
+                <div class="culture-item animated">
+                    <div class="culture-image">
+                        <img src="https://img.okezone.com/content/2016/04/29/33/1376024/tari-bedhaya-minangkalbu-tampil-memukau-di-world-dance-day-SwoMmvlZj1.jpg" alt="Tari Bedhaya">
+                    </div>
+                    <div class="culture-text">
+                        <h3>Tari Bedhaya</h3>
+                        <p>Tari Bedhaya merupakan tarian sakral keraton yang hanya dipentaskan pada acara-acara khusus. Tarian ini dibawakan oleh sembilan penari wanita yang melambangkan sembilan lubang dalam tubuh manusia menurut filosofi Jawa.</p>
+                        <p>Gerakan tari yang lemah gemulai dan anggun mencerminkan kehalusan budi pekerti masyarakat Jawa. Kostum yang digunakan biasanya adalah kebaya dan kain batik dengan hiasan kepala yang khas.</p>
+                    </div>
+                </div>
+                
+                <div class="culture-item animated">
+                    <div class="culture-image">
+                        <img src="https://statics.indozone.news/local/6304eec62a159.jpg" alt="Pembatik Tradisional">
+                    </div>
+                    <div class="culture-text">
+                        <h3>Seni Batik Rumah Oblong</h3>
+                        <p>Batik adalah seni lukis pada kain dengan teknik perintang warna menggunakan malam (lilin). Yogyakarta memiliki motif batik khas seperti Parang Rusak, Kawung, dan Sido Mulyo yang memiliki filosofi mendalam dalam kehidupan.</p>
+                        <p>Di Jogja, Anda dapat mengunjungi sentra batik di daerah Imogiri dan Giriloyo, serta belajar langsung proses pembuatan batik tulis tradisional dari para pengrajin yang telah mewarisi keahlian ini secara turun-temurun.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <h2 class="section-title">Galeri KI RPL Di Jogja</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.38.47 (1).jpeg" alt="Sunset di Candi Prambanan">
+                    <div class="gallery-caption">Foto Bersama Babi Babi Di Malioboro</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.38.47.jpeg" alt="Andong di Malioboro">
+                    <div class="gallery-caption">Foto di Obelix Seaw</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.38.48 (1).jpeg" alt="Kraton Yogyakarta">
+                    <div class="gallery-caption">Foto Angkatan Di UTDI</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.38.48.jpeg" alt="Gumuk Pasir Parangkusumo">
+                    <div class="gallery-caption">Suasana Di Gedung UTDI</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.38.50.jpeg" alt="Pertunjukan Ramayana Ballet">
+                    <div class="gallery-caption">Foto Bersama Ayang e Astiiw</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.38.51.jpeg" alt="Air Terjun Sri Gethuk">
+                    <div class="gallery-caption">Gopi Di Tupitu Kopi</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.38.53.jpeg" alt="Kampung Warna-warni Kali Code">
+                    <div class="gallery-caption">Gambaran Menu Di Tupitu Kopi</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.38.55.jpeg" alt="Senja di Alun-alun Kidul">
+                    <div class="gallery-caption">Mencoba Unit Bis Yang DI Pakai</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.47.14.jpeg" alt="Pertunjukan Ramayana Ballet">
+                    <div class="gallery-caption">Dapa dan Ciwir Lagi Bobo</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 20.47.47.jpeg" alt="Air Terjun Sri Gethuk">
+                    <div class="gallery-caption">Foto Miror di Toilet Malioboro</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.47.26.jpeg" alt="Kampung Warna-warni Kali Code">
+                    <div class="gallery-caption">Penunjuk Arah Di Kawasan Malioboro</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.54.31.jpeg" alt="Senja di Alun-alun Kidul">
+                    <div class="gallery-caption">Sunset Di Kawasan Obelix Seaw</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 12.13.14.jpeg" alt="Pertunjukan Ramayana Ballet">
+                    <div class="gallery-caption">Pinggiran Malioboro</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 20.40.51.jpeg" alt="Air Terjun Sri Gethuk">
+                    <div class="gallery-caption">Mengunjungi Teras Malioboro</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.39.47.jpeg" alt="Kampung Warna-warni Kali Code">
+                    <div class="gallery-caption">ANOMALI PACAR E DEAANGGUNARIS</div>
+                </div>
+                <div class="gallery-item animated">
+                    <img src="WhatsApp Image 2025-05-19 at 11.39.56.jpeg" alt="Senja di Alun-alun Kidul">
+                    <div class="gallery-caption">Foto dengan pendiri KRIMINAL ETAN POLRES</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer>
+        <div class="footer-content">
+            <h2>Yogyakarta Menunggu Kunjunganmu</h2>
+            <p>Rencanakan perjalanan tak terlupakan ke kota istimewa ini dan rasakan sendiri pesonanya.</p>
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">YouTube</a></li>
+            </ul>
+            <p class="copyright">© 2025 Pesona Jogjakarta. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animasi scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = 0;
+                observer.observe(el);
+            });
+            
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+        </script>
+        </body>
+        </html>
+    
